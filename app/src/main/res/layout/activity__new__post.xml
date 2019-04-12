@@ -21,8 +21,8 @@
 
     <ImageView
         android:id="@+id/iv_foto2"
-        android:layout_width="286dp"
-        android:layout_height="210dp"
+        android:layout_width="271dp"
+        android:layout_height="126dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
@@ -34,7 +34,7 @@
 
     <EditText
         android:id="@+id/et_descripcion2"
-        android:layout_width="345dp"
+        android:layout_width="277dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
@@ -45,17 +45,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_link" />
-
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/textInputLayout"
-        android:layout_width="349dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.456"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="355dp"/>
 
     <Button
         android:id="@+id/btnn_publicar"
@@ -76,20 +65,21 @@
 
     <EditText
         android:id="@+id/et_procedimiento"
-        android:layout_width="347dp"
-        android:layout_height="180dp"
+        android:layout_width="274dp"
+        android:layout_height="53dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:ems="10"
+        android:hint="Procedimiento"
         android:inputType="textMultiLine"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.52"
+        app:layout_constraintHorizontal_bias="0.479"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
-        app:layout_constraintVertical_bias="0.033" />
+        app:layout_constraintTop_toBottomOf="@+id/et_descripcion2"
+        app:layout_constraintVertical_bias="0.024" />
 
     <EditText
         android:id="@+id/et_titulo"

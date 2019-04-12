@@ -6,31 +6,20 @@
     android:layout_height="match_parent"
     tools:context=".Activity_Perfil">
 
-    <TextView
-        android:id="@+id/tv_post"
-        android:layout_width="74dp"
-        android:layout_height="18dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="8dp"
-        android:text="Posts"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.056"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_foto" />
-
     <ListView
         android:id="@+id/lv_post"
-        android:layout_width="395dp"
-        android:layout_height="470dp"
+        android:layout_width="367dp"
+        android:layout_height="157dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.285"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_post" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_nombre_usuario"
+        app:layout_constraintVertical_bias="0.601" />
 
     <TextView
         android:id="@+id/tv_nombre_usuario"
@@ -39,36 +28,51 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:text="Alejandro Lora"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/iv_foto"
-        android:layout_width="69dp"
-        android:layout_height="76dp"
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="117dp"
+        android:layout_height="137dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_nombre_usuario">
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="wrap_content"
+            android:layout_height="97dp"
+            android:layout_weight="1"
+            app:srcCompat="@mipmap/ic_launcher" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="136dp"
+        android:layout_height="137dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.055"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_nombre_usuario"
-        app:srcCompat="@mipmap/ic_launcher" />
+        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintStart_toEndOf="@+id/linearLayout2"
+        app:layout_constraintTop_toBottomOf="@+id/tv_nombre_usuario">
 
-    <EditText
-        android:id="@+id/et_descripcion"
-        android:layout_width="196dp"
-        android:layout_height="115dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="24dp"
-        android:ems="10"
-        android:inputType="textMultiLine"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.977"
-        app:layout_constraintStart_toEndOf="@+id/iv_foto"
-        app:layout_constraintTop_toBottomOf="@+id/tv_nombre_usuario" />
+        <EditText
+            android:id="@+id/editText2"
+            android:layout_width="wrap_content"
+            android:layout_height="137dp"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="textMultiLine"
+            android:text="Soy un Adulto preocupado por el medio ambiente y por el reciclaje" />
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

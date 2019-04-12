@@ -18,7 +18,7 @@
             android:title="Guardados" />
     </group>
 
-    <item android:title="mas">
+    <item android:title="más">
         <menu>
             <item
                 android:id="@+id/nav_editar_perfil"
