@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_perfil"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Perfil" />
+        <item
+            android:id="@+id/nav_nuevo_post"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Nuevo Post" />
+        <item
+            android:id="@+id/nav_Guardados"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Guardados" />
+    </group>
+
+    <item android:title="mas">
+        <menu>
+            <item
+                android:id="@+id/nav_editar_perfil"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Editar Perfil" />
+            <item
+                android:id="@+id/nav_cerrar_sesion"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Cerrar Sesión" />
+        </menu>
+    </item>
+
+</menu>
