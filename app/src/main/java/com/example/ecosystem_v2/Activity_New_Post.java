@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -17,39 +18,42 @@ import java.net.URL;
 
 public class Activity_New_Post extends AppCompatActivity {
 
-    EditText et_titulo;
-    EditText et_link;
-    EditText iv_foto;
-    EditText et_procedimiento;
-    EditText et_descripcion;
+    EditText et_titulo_np;
+    EditText et_link_np;
+    EditText iv_foto_np;
+    EditText et_procedimiento_np;
+    EditText et_descripcion_np;
 
-    private String url = "http://webserviceedgar.herokuapp.com/api_post?user_hash=12345&action=get";
-
+    private String url = "http://webserviceedgar.herokuapp"+".com/api_post?user_hash=12345&action=put&";
+    private String id = "1";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity__new__post);
 
-        et_titulo = findViewById(R.id.et_titulo);
-        et_link = findViewById(R.id.et_link);
+        et_titulo_np = findViewById(R.id.et_titulo_np);
+        et_link_np = findViewById(R.id.et_link_np);
         //iv_foto = findViewById(R.id.iv_foto);
-        et_procedimiento = findViewById(R.id.et_procedimiento);
-        et_descripcion = findViewById(R.id.et_descripcion);
+        et_procedimiento_np = findViewById(R.id.et_procedimiento_np);
+        et_descripcion_np = findViewById(R.id.et_descripcion_np);
     }
     public void btn_insertOnClick(View view){
         StringBuilder sb = new StringBuilder();
         sb.append(url);
-        sb.append("procedimiento="+et_procedimiento.getText());
+        sb.append("titulo="+et_titulo_np.getText());
         sb.append("&");
-        sb.append("titulo="+et_titulo.getText());
+        sb.append("descripcion="+et_descripcion_np.getText());
         sb.append("&");
-        sb.append("link_video="+et_link.getText());
+        sb.append("procedimento="+et_procedimiento_np.getText());
         sb.append("&");
-        sb.append("descripcion="+et_descripcion.getText());
+        sb.append("link_video="+et_link_np.getText());
         sb.append("&");
-        sb.append("id_comentario="+et_procedimiento.getText());
+        sb.append("imagen=1");
         sb.append("&");
+        sb.append("id_usuario_eco=1");
+
+
         webServicePut(sb.toString());
         Log.e("URL",sb.toString());
     }

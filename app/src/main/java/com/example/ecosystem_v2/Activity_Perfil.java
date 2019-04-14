@@ -76,7 +76,7 @@ public class Activity_Perfil extends AppCompatActivity {
             try{
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                 id_post = jsonObject.getString("id_post");
-                titulo = jsonObject.getString("titulo");
+                titulo = jsonObject.getString("Titulo");
 
                 adapter.add(id_post + ": " + titulo);
             }catch (JSONException e){

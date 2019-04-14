@@ -36,6 +36,8 @@ public class MainActivity extends AppCompatActivity
     private ArrayAdapter adapter;
     private String url = "https://webserviceedgar.herokuapp.com/api_post?user_hash=12345&action=get";
 
+    public static final String ID_POST = "1";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +52,23 @@ public class MainActivity extends AppCompatActivity
 
         webServiceRest(url);
 
+        //ACCION DE LIST VIEW
+        lv_post_index.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Log.e("ITEM", lv_post_index.getItemAtPosition(position).toString());
+                String datos_post[] =
+                        lv_post_index.getItemAtPosition(position).toString().split(":");
+                String id_post = datos_post[0];
+                Log.e("ID_POST",id_post);
+                Intent i = new Intent(MainActivity.this, Activity_Show_Post.class);
+                i.putExtra(ID_POST,id_post);
+                startActivity(i);
+            }
+        });
+
+
+        //Navegacion para la app
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -95,7 +114,7 @@ public class MainActivity extends AppCompatActivity
             try{
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                 id_post = jsonObject.getString("id_post");
-                titulo = jsonObject.getString("titulo");
+                titulo = jsonObject.getString("Titulo");
 
                 adapter.add(titulo);
             }catch (JSONException e){
