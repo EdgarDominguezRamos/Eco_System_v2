@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity
         StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().permitNetwork().build());
 
         lv_post_index = (ListView)findViewById(R.id.lv_post_index);
-        adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1);
+        adapter = new ArrayAdapter(this, R.layout.post_item);
         lv_post_index.setAdapter(adapter);
 
         webServiceRest(url);
@@ -96,7 +96,7 @@ public class MainActivity extends AppCompatActivity
             bufferedReader.close();
             parseInformation(webServiceResult);
         }catch(Exception e){
-            e.printStackTrace();
+            Log.e("Error 100",e.getMessage());
         }
     }
 
@@ -108,7 +108,7 @@ public class MainActivity extends AppCompatActivity
         try{
             jsonArray = new JSONArray(jsonResult);
         }catch (JSONException e){
-            e.printStackTrace();
+            Log.e("Error 101",e.getMessage());
         }
         for(int i=0;i<jsonArray.length();i++){
             try{
@@ -116,7 +116,7 @@ public class MainActivity extends AppCompatActivity
                 id_post = jsonObject.getString("id_post");
                 titulo = jsonObject.getString("Titulo");
 
-                adapter.add(titulo);
+                adapter.add(id_post +": " + titulo);
             }catch (JSONException e){
                 e.printStackTrace();
             }

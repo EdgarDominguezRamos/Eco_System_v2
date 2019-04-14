@@ -33,8 +33,8 @@ public class Activity_Show_Post extends AppCompatActivity {
 
         //inicialización de EditText de la vista
         tv_titulo_sp = findViewById(R.id.tv_titulo_sp);
-        et_descripcion_sp = findViewById(R.id.et_descripcion_np);
-        et_procedimiento_sp = findViewById(R.id.et_procedimiento_np);
+        et_descripcion_sp = findViewById(R.id.et_descripcion_sp);
+        et_procedimiento_sp = findViewById(R.id.et_procedimiento_sp);
 
         //Objeto tipo Intent para recuperar el parametro enviado
         Intent intent = getIntent();
