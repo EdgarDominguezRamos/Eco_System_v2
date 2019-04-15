@@ -21,6 +21,11 @@
             app:layout_constraintStart_toStartOf="parent"
             android:orientation="vertical">
 
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:layout_editor_absoluteX="59dp"
+                tools:layout_editor_absoluteY="0dp">
             <TextView
                 android:id="@+id/tv_nombre_usuario_p"
                 android:layout_width="match_parent"
@@ -28,12 +33,14 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
+                android:fontFamily="@font/amarante"
                 android:text="Alejandro Lora"
                 android:textAlignment="center"
+                android:textColor="@color/colorAccent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-
+            </ScrollView>
             <LinearLayout
                 android:id="@+id/linearLayout2"
                 android:layout_width="match_parent"
@@ -71,8 +78,10 @@
                     android:layout_height="137dp"
                     android:layout_weight="1"
                     android:ems="10"
+                    android:enabled="false"
                     android:inputType="textMultiLine"
-                    android:text="Soy un Adulto preocupado por el medio ambiente y por el reciclaje" />
+                    android:text="Soy una persona dedicada y preocupada por la ecologia"
+                    android:textColor="@color/colorPrimary" />
             </LinearLayout>
 
             <ListView

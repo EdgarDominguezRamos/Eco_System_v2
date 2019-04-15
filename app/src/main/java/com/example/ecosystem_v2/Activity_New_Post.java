@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -45,17 +46,20 @@ public class Activity_New_Post extends AppCompatActivity {
         sb.append("&");
         sb.append("descripcion="+et_descripcion_np.getText());
         sb.append("&");
-        sb.append("procedimento="+et_procedimiento_np.getText());
+        sb.append("procedimineto="+et_procedimiento_np.getText());
         sb.append("&");
         sb.append("link_video="+et_link_np.getText());
         sb.append("&");
-        sb.append("imagen=1");
+        sb.append("imagen="+1);
         sb.append("&");
-        sb.append("id_usuario_eco=1");
+        sb.append("id_usuario_eco="+1);
 
 
         webServicePut(sb.toString());
         Log.e("URL",sb.toString());
+        Toast toast = Toast.makeText(this, R.string.toast_mesage,
+                Toast.LENGTH_SHORT);
+        toast.show();
     }
     private void webServicePut(String requestURL){
         try{

@@ -5,8 +5,10 @@ import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -96,5 +98,10 @@ public class Activity_Show_Post extends AppCompatActivity {
             }
 
         }
+    }
+    public void guardar_post (View view){
+        Toast toast = Toast.makeText(this, R.string.toast_guardar,
+                Toast.LENGTH_SHORT);
+        toast.show();
     }
 }
