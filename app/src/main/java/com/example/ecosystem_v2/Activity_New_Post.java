@@ -25,7 +25,7 @@ public class Activity_New_Post extends AppCompatActivity {
     EditText et_procedimiento_np;
     EditText et_descripcion_np;
 
-    private String url = "http://webserviceedgar.herokuapp"+".com/api_post?user_hash=12345&action=put&";
+    private String url = "http://webserviceedgar.herokuapp"+"api_post?user_hash=12345&action=put&";
     private String id = "1";
 
     @Override
@@ -42,7 +42,7 @@ public class Activity_New_Post extends AppCompatActivity {
     public void btn_insertOnClick(View view){
         StringBuilder sb = new StringBuilder();
         sb.append(url);
-        sb.append("titulo="+et_titulo_np.getText());
+        sb.append("Titulo="+et_titulo_np.getText());
         sb.append("&");
         sb.append("descripcion="+et_descripcion_np.getText());
         sb.append("&");
@@ -50,9 +50,9 @@ public class Activity_New_Post extends AppCompatActivity {
         sb.append("&");
         sb.append("link_video="+et_link_np.getText());
         sb.append("&");
-        sb.append("imagen="+1);
-        sb.append("&");
         sb.append("id_usuario_eco="+1);
+        sb.append("&");
+        sb.append("categoria"+"");
 
 
         webServicePut(sb.toString());

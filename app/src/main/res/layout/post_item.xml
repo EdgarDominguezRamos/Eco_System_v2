@@ -4,6 +4,7 @@
     android:id="@+id/tv_post_item"
     android:layout_width="match_parent"
     android:layout_height="28dp"
+    android:fontFamily="@font/amita"
     android:singleLine="true"
     android:textColor="@color/colorAccent"
     android:textSize="18sp" />

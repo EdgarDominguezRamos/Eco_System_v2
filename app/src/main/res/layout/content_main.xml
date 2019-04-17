@@ -8,28 +8,83 @@
     tools:context=".MainActivity"
     tools:showIn="@layout/app_bar_main">
 
+    <HorizontalScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_post">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <Button
+                android:id="@+id/btnn_pet_m"
+                android:layout_width="122dp"
+                android:layout_height="27dp"
+                android:layout_marginStart="8dp"
+                android:background="@color/colorPrimaryDark"
+                android:fontFamily="@font/karla"
+                android:onClick="pet"
+                android:text="PET" />
+
+            <Button
+                android:id="@+id/btnn_aluminio_m"
+                android:layout_width="129dp"
+                android:layout_height="27dp"
+                android:layout_marginStart="8dp"
+                android:background="@color/colorPrimaryDark"
+                android:fontFamily="@font/karla"
+                android:onClick="aluminio"
+                android:text="Aluminio" />
+
+            <Button
+                android:id="@+id/btnn_carton_m"
+                android:layout_width="123dp"
+                android:layout_height="27dp"
+                android:layout_marginStart="8dp"
+                android:background="@color/colorPrimaryDark"
+                android:fontFamily="@font/karla"
+                android:onClick="carton"
+                android:text="Cartón" />
+
+        </LinearLayout>
+
+    </HorizontalScrollView>
 
     <ListView
         android:id="@+id/lv_post_index"
         android:layout_width="395dp"
-        android:layout_height="616dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/tv_post"
+        android:layout_height="407dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView2"
         tools:layout_editor_absoluteX="8dp" />
 
-    <TextView
-        android:id="@+id/tv_post"
-        android:layout_width="389dp"
-        android:layout_height="33dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:fontFamily="@font/amarante"
-        android:text="Nuevos Post"
-        android:textAlignment="center"
-        android:textColor="@color/colorAccent"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/tv_post"
+            android:layout_width="389dp"
+            android:layout_height="33dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/amarante"
+            android:text="Nuevos Post"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimary"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
 </android.support.constraint.ConstraintLayout>

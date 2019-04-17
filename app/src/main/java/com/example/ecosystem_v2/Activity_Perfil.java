@@ -33,7 +33,7 @@ public class Activity_Perfil extends AppCompatActivity {
     private ListView lv_post;
     private ArrayAdapter adapter;
     private String url = "https://webserviceedgar.herokuapp.com/api_post?user_hash=12345&action=get&id_usurio_eco=1";
-    private String url_user = "https://webserviceedgar.herokuapp.com/api_usuarios_eco?user_hash=12345&action=get&id_usuario_eco=";
+    private String url_user = "https://webserviceedgar.herokuapp.com/api_usuarios_eco?user_hash=12345&action=get&id_usuario_eco=1";
 
     public static final String ID_POST = "1";
     public static final String ID_USUARIO ="1";
@@ -58,7 +58,7 @@ public class Activity_Perfil extends AppCompatActivity {
         String id_usuario = intent.getStringExtra(Activity_Perfil.ID_USUARIO);
 
         url_user+="1";
-        Log.e("url_usuario",url_user);
+        //Log.e("url_usuario",url_user);
         webServiceRest(url);
 
         lv_post.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -88,6 +88,7 @@ public class Activity_Perfil extends AppCompatActivity {
             }
             bufferedReader.close();
             parseInformation(webServiceResult);
+            parseInformationUsuario(webServiceResult);
         }catch(Exception e){
             Log.e("Error 100",e.getMessage());
         }
@@ -98,8 +99,6 @@ public class Activity_Perfil extends AppCompatActivity {
         String id_post;
         String titulo;
 
-        String descripcion;
-        String nombre;
         try{
             jsonArray = new JSONArray(jsonResult);
         }catch (JSONException e){
@@ -113,6 +112,25 @@ public class Activity_Perfil extends AppCompatActivity {
 
                 adapter.add(id_post + ": " + titulo);
 
+            }catch (JSONException e){
+                Log.e("Error 102",e.getMessage());
+            }
+        }
+    }
+
+    private void parseInformationUsuario(String jsonResult){
+        JSONArray jsonArray = null;
+        String descripcion;
+        String nombre;
+        try{
+            jsonArray = new JSONArray(jsonResult);
+        }catch (JSONException e){
+            Log.e("Error 101",e.getMessage());
+        }
+        for(int i=0;i<jsonArray.length();i++){
+            try{
+                JSONObject jsonObject = jsonArray.getJSONObject(i);
+
                 nombre = jsonObject.getString("nombre");
                 descripcion = jsonObject.getString("descripcion");
                 //Se muestran los datos del cliente en su respectivo EditText
@@ -125,5 +143,6 @@ public class Activity_Perfil extends AppCompatActivity {
             }
         }
     }
+
 
 }

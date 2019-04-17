@@ -26,6 +26,7 @@ public class Activity_Show_Post extends AppCompatActivity {
     EditText et_procedimiento_sp;
 
     private String url = "https://webserviceedgar.herokuapp.com/api_post?user_hash=12345&action=get&id_post=";
+    private String url_put = "https://webserviceedgar.herokuapp.com/api_guardado?user_hash=12345&action=put&";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +46,62 @@ public class Activity_Show_Post extends AppCompatActivity {
         //Se cocnatena la url con el id_post para obtener los datos
         url+=id_post;
         webServiceRest(url);
+    }
+
+    public void btn_insertOnClick(View view){
+        StringBuilder sb = new StringBuilder();
+        //Objeto tipo Intent para recuperar el parametro enviado
+        Intent intent = getIntent();
+        //Se almacena el id_post enviado
+        String id_post = intent.getStringExtra(MainActivity.ID_POST);
+        //Se cocnatena la url con el id_post para obtener los datos
+        //url+=id_post;
+        webServicePut(url_put);
+
+        sb.append(url_put);
+        sb.append("id_usuario_eco="+"1");
+        sb.append("&");
+        sb.append("id_post="+id_post);
+        webServicePut(sb.toString());
+        Log.e("URL",sb.toString());
+    }
+    private void webServicePut(String requestURL){
+        try{
+            URL url = new URL(requestURL);
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+            String line = "";
+            String webServiceResult="";
+            while ((line = bufferedReader.readLine()) != null){
+                webServiceResult += line;
+            }
+            bufferedReader.close();
+            parseInformationPut(webServiceResult);
+        }catch(Exception e){
+            Log.e("Error 100",e.getMessage());
+        }
+    }
+    private void parseInformationPut(String jsonResult){
+        JSONArray jsonArray = null;
+        String status;
+        String description;
+        try{
+            jsonArray = new JSONArray(jsonResult);
+        }catch (JSONException e){
+            Log.e("Error 101",e.getMessage());
+        }
+        for(int i=0;i<jsonArray.length();i++){
+            try{
+                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                //Se obtiene cada uno de los datos cliente del webservice
+                status = jsonObject.getString("status");
+                description = jsonObject.getString("description");
+                Log.e("STATUS",status);
+                Log.e("DESCRIPTION",description);
+            }catch (JSONException e){
+                Log.e("Error 102",e.getMessage());
+            }
+        }
     }
     private void webServiceRest(String requestURL){
         try{

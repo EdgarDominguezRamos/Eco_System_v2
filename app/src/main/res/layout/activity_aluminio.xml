@@ -2,30 +2,28 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/lv_guardado"
+    android:id="@+id/lv_aluminio"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/fondo4"
-    tools:context=".Activity_Guardados">
+    tools:context=".Activity_aluminio">
 
     <TextView
-        android:id="@+id/tv_guardado"
+        android:id="@+id/tv_titulo_aluminio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:fontFamily="@font/aclonica"
-        android:text="Post Guardados"
-        android:textColor="@color/colorAccent"
+        android:text="Curiosidades con Aluminio"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ListView
-        android:id="@+id/lv_guardado_g"
+        android:id="@+id/lv_aluminio_list"
         android:layout_width="395dp"
         android:layout_height="688dp"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="35dp" />
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/tv_titulo_aluminio"
+        tools:layout_editor_absoluteX="8dp" />
 </android.support.constraint.ConstraintLayout>

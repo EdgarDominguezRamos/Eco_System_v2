@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.view.MenuItemCompat;
 import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -18,6 +19,7 @@ import android.view.MenuItem;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.SearchView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -136,8 +138,26 @@ public class MainActivity extends AppCompatActivity
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
+
+        MenuItem searchItem = menu.findItem(R.id.search);
+        SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
+        //searchView.setOnQueryTextListener(this);
         return true;
+
     }
+
+    public boolean onQueryTextSubmit(String query) {
+        // User pressed the search button
+
+        return false;
+    }
+    public boolean onQueryTextChange(String newText) {
+        // User changed the text
+        return false;
+    }
+
+
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -178,4 +198,19 @@ public class MainActivity extends AppCompatActivity
         //Log.d("Valor", String.valueOf(url));
         return true;
     }
+
+    //categorias
+    public void carton(View view){
+        Intent intent = new Intent(getApplicationContext(), Activity_carton.class);
+        startActivity(intent);
+    }
+    public void aluminio(View view) {
+        Intent intent = new Intent(getApplicationContext(), Activity_aluminio.class);
+        startActivity(intent);
+    }
+    public void pet(View view) {
+        Intent intent = new Intent(getApplicationContext(), Activity_pet.class);
+        startActivity(intent);
+    }
+
 }
