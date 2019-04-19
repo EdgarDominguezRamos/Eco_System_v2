@@ -23,7 +23,7 @@ public class Activity_carton extends AppCompatActivity {
 
     private ListView lv_carton_list;
     private ArrayAdapter adapter;
-    private String url = "https://webserviceedgar.herokuapp.com/api_post?user_hash=12345&action=get&categoria=Carton";
+    private String url = "https://webserviceedgar.herokuapp.com/api_carton_post?user_hash=12345&action=get";
 
     public static final String ID_POST = "1";
 
@@ -80,8 +80,8 @@ public class Activity_carton extends AppCompatActivity {
         for(int i=0;i<jsonArray.length();i++){
             try{
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
-                id_post = jsonObject.getString("id_post");
-                titulo = jsonObject.getString("Titulo");
+                id_post = jsonObject.getString("id_carton_post");
+                titulo = jsonObject.getString("titulo");
 
                 adapter.add(id_post +": " + titulo);
             }catch (JSONException e){

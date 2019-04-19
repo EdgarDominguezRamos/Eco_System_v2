@@ -22,7 +22,7 @@ public class Activity_pet extends AppCompatActivity {
 
     private ListView lv_pet_list;
     private ArrayAdapter adapter;
-    private String url = "https://webserviceedgar.herokuapp.com/api_post?user_hash=12345&action=get";
+    private String url = "https://webserviceedgar.herokuapp.com/api_pet_post?user_hash=12345&action=get";
 
     public static final String ID_POST_P = "1";
     @Override
@@ -77,8 +77,8 @@ public class Activity_pet extends AppCompatActivity {
         for(int i=0;i<jsonArray.length();i++){
             try{
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
-                id_post = jsonObject.getString("id_post");
-                titulo = jsonObject.getString("Titulo");
+                id_post = jsonObject.getString("id_pet_post");
+                titulo = jsonObject.getString("titulo");
 
                 adapter.add(id_post +": " + titulo);
             }catch (JSONException e){

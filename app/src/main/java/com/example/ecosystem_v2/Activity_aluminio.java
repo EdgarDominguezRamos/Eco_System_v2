@@ -23,7 +23,7 @@ public class Activity_aluminio extends AppCompatActivity {
 
     private ListView lv_aluminio_list;
     private ArrayAdapter adapter;
-    private String url = "https://webserviceedgar.herokuapp.com/api_post?user_hash=12345&action=get";
+    private String url = "https://webserviceedgar.herokuapp.com/api_aluminio_post?user_hash=12345&action=get";
 
     public static final String ID_POSTA = "1";
     @Override
@@ -82,8 +82,8 @@ public class Activity_aluminio extends AppCompatActivity {
         for(int i=0;i<jsonArray.length();i++){
             try{
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
-                id_post = jsonObject.getString("id_post");
-                titulo = jsonObject.getString("Titulo");
+                id_post = jsonObject.getString("id_aluminio_post");
+                titulo = jsonObject.getString("titulo");
 
                 adapter.add(id_post +": " + titulo);
             }catch (JSONException e){

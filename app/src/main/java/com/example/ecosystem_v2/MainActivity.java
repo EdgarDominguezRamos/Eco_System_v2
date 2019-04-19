@@ -34,6 +34,8 @@ import java.util.StringTokenizer;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    String titulo= "Eco System";
+
     private ListView lv_post_index;
     private ArrayAdapter adapter;
     private String url = "https://webserviceedgar.herokuapp.com/api_post?user_hash=12345&action=get";
@@ -45,6 +47,7 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        this.setTitle(R.string.app_name);
         StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().permitNetwork().build());
 
         lv_post_index = (ListView)findViewById(R.id.lv_post_index);
@@ -156,23 +159,6 @@ public class MainActivity extends AppCompatActivity
         return false;
     }
 
-
-
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override

@@ -8,83 +8,94 @@
     tools:context=".MainActivity"
     tools:showIn="@layout/app_bar_main">
 
-    <HorizontalScrollView
+    <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="match_parent"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_post">
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent">
 
-            <Button
-                android:id="@+id/btnn_pet_m"
-                android:layout_width="122dp"
-                android:layout_height="27dp"
+            <TextView
+                android:id="@+id/tv_post"
+                android:layout_width="match_parent"
+                android:layout_height="33dp"
                 android:layout_marginStart="8dp"
-                android:background="@color/colorPrimaryDark"
-                android:fontFamily="@font/karla"
-                android:onClick="pet"
-                android:text="PET" />
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:fontFamily="@font/amarante"
+                android:text="Nuevos Post"
+                android:textAlignment="center"
+                android:textColor="@color/colorPrimary"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-            <Button
-                android:id="@+id/btnn_aluminio_m"
-                android:layout_width="129dp"
-                android:layout_height="27dp"
+            <ImageButton
+                android:id="@+id/imageButton"
+                android:layout_width="match_parent"
+                android:layout_height="79dp"
                 android:layout_marginStart="8dp"
-                android:background="@color/colorPrimaryDark"
-                android:fontFamily="@font/karla"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
                 android:onClick="aluminio"
-                android:text="Aluminio" />
+                android:src="@drawable/aluminiobttncopia"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:layout_editor_absoluteY="64dp" />
 
-            <Button
-                android:id="@+id/btnn_carton_m"
-                android:layout_width="123dp"
-                android:layout_height="27dp"
+            <ImageButton
+                android:id="@+id/imageButton2"
+                android:layout_width="match_parent"
+                android:layout_height="79dp"
                 android:layout_marginStart="8dp"
-                android:background="@color/colorPrimaryDark"
-                android:fontFamily="@font/karla"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="8dp"
                 android:onClick="carton"
-                android:text="Cartón" />
+                app:srcCompat="@drawable/cartonbttn"
+                tools:layout_editor_absoluteX="95dp"
+                tools:layout_editor_absoluteY="156dp" />
+
+            <ImageButton
+                android:id="@+id/imageButton3"
+                android:layout_width="match_parent"
+                android:layout_height="87dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="8dp"
+                android:onClick="pet"
+                app:srcCompat="@drawable/petbttn"
+                tools:layout_editor_absoluteX="100dp"
+                tools:layout_editor_absoluteY="260dp" />
+
+            <ListView
+                android:id="@+id/lv_post_index"
+                android:layout_width="384dp"
+                android:layout_height="329dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
 
         </LinearLayout>
-
-    </HorizontalScrollView>
-
-    <ListView
-        android:id="@+id/lv_post_index"
-        android:layout_width="395dp"
-        android:layout_height="407dp"
-        android:layout_marginTop="12dp"
-        app:layout_constraintTop_toBottomOf="@+id/scrollView2"
-        tools:layout_editor_absoluteX="8dp" />
-
-        <TextView
-            android:id="@+id/tv_post"
-            android:layout_width="389dp"
-            android:layout_height="33dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:fontFamily="@font/amarante"
-            android:text="Nuevos Post"
-            android:textAlignment="center"
-            android:textColor="@color/colorPrimary"
-            android:textSize="24sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    </ScrollView>
 
 
 </android.support.constraint.ConstraintLayout>
