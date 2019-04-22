@@ -1,6 +1,7 @@
 package com.example.ecosystem_v2;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -17,13 +18,16 @@ import org.json.JSONObject;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
+import java.net.URI;
 import java.net.URL;
 
-public class Activity_Show_Post extends AppCompatActivity {
+public class Activity_Show_Post extends AppCompatActivity implements View.OnClickListener {
 
     TextView tv_titulo_sp;
+    TextView tv_link_sp;
     EditText et_descripcion_sp;
     EditText et_procedimiento_sp;
+    String direccion;
 
     private String url = "https://webserviceedgar.herokuapp.com/api_post?user_hash=12345&action=get&id_post=";
     private String url_put = "https://webserviceedgar.herokuapp.com/api_guardado?user_hash=12345&action=put&";
@@ -38,6 +42,7 @@ public class Activity_Show_Post extends AppCompatActivity {
         tv_titulo_sp = findViewById(R.id.tv_titulo_sp);
         et_descripcion_sp = findViewById(R.id.et_descripcion_sp);
         et_procedimiento_sp = findViewById(R.id.et_procedimiento_sp);
+        tv_link_sp = findViewById(R.id.tv_link_sp);
 
         //Objeto tipo Intent para recuperar el parametro enviado
         Intent intent = getIntent();
@@ -46,7 +51,12 @@ public class Activity_Show_Post extends AppCompatActivity {
         //Se cocnatena la url con el id_post para obtener los datos
         url+=id_post;
         webServiceRest(url);
+
+        direccion="";
+        tv_link_sp.setOnClickListener(this);
     }
+
+
 
     public void btn_insertOnClick(View view){
         StringBuilder sb = new StringBuilder();
@@ -64,6 +74,10 @@ public class Activity_Show_Post extends AppCompatActivity {
         sb.append("id_post="+id_post);
         webServicePut(sb.toString());
         Log.e("URL",sb.toString());
+
+        Toast toast = Toast.makeText(this, R.string.toast_guardar,
+                Toast.LENGTH_SHORT);
+        toast.show();
     }
     private void webServicePut(String requestURL){
         try{
@@ -149,16 +163,22 @@ public class Activity_Show_Post extends AppCompatActivity {
                 tv_titulo_sp.setText(titulo);
                 et_descripcion_sp.setText(descripcion);
                 et_procedimiento_sp.setText(procedimiento);
-
+                tv_link_sp.setText(link_video);
+                direccion=link_video;
             }catch (JSONException e){
                 e.printStackTrace();
             }
 
         }
     }
-    public void guardar_post (View view){
-        Toast toast = Toast.makeText(this, R.string.toast_guardar,
-                Toast.LENGTH_SHORT);
-        toast.show();
+    public void onClick(View v){
+        direccion="https://www.youtube.com/watch?v=LB2AhSKg1OE";
+        ir_youtube(direccion);
+    }
+    public void ir_youtube(String d){
+        Uri uri=Uri.parse(d);
+        Intent intentNav= new Intent(Intent.ACTION_VIEW,uri);
+        startActivity(intentNav);
+
     }
 }

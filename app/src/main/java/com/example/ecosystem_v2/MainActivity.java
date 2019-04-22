@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity
     private String url = "https://webserviceedgar.herokuapp.com/api_post?user_hash=12345&action=get";
 
     public static final String ID_POST = "1";
+    public static final String ID_USUARIO = "1";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

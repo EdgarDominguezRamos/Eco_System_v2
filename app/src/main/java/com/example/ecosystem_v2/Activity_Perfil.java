@@ -27,17 +27,11 @@ import java.net.URL;
 
 public class Activity_Perfil extends AppCompatActivity {
 
-    TextView tv_nombre_usuario_p;
-    EditText et_descripcion_p;
-
     private ListView lv_post;
     private ArrayAdapter adapter;
     private String url = "https://webserviceedgar.herokuapp.com/api_post?user_hash=12345&action=get&id_usurio_eco=1";
-    private String url_user = "https://webserviceedgar.herokuapp.com/api_usuarios_eco?user_hash=12345&action=get&id_usuario_eco=1";
 
     public static final String ID_POST = "1";
-    public static final String ID_USUARIO ="1";
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,16 +43,6 @@ public class Activity_Perfil extends AppCompatActivity {
         adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1);
         lv_post.setAdapter(adapter);
 
-        //inicialización de EditText de la vista
-        tv_nombre_usuario_p = findViewById(R.id.tv_nombre_usuario_p);
-        et_descripcion_p = findViewById(R.id.et_descripcion_p);
-        //Objeto tipo Intent para recuperar el parametro enviado
-        Intent intent = getIntent();
-        //Se almacena el id_cliente enviado
-        String id_usuario = intent.getStringExtra(Activity_Perfil.ID_USUARIO);
-
-        url_user+="1";
-        //Log.e("url_usuario",url_user);
         webServiceRest(url);
 
         lv_post.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -71,7 +55,7 @@ public class Activity_Perfil extends AppCompatActivity {
                 Log.e("ID_POST",id_post);
                 Intent i = new Intent(Activity_Perfil.this, Activity_Show_Post.class);
                 i.putExtra(ID_POST,id_post);
-                startActivity(i);
+               startActivity(i);
             }
         });
     }
@@ -88,9 +72,8 @@ public class Activity_Perfil extends AppCompatActivity {
             }
             bufferedReader.close();
             parseInformation(webServiceResult);
-            parseInformationUsuario(webServiceResult);
         }catch(Exception e){
-            Log.e("Error 100",e.getMessage());
+            Log.e("Error 100: lista_ws",e.getMessage());
         }
     }
 
@@ -102,7 +85,7 @@ public class Activity_Perfil extends AppCompatActivity {
         try{
             jsonArray = new JSONArray(jsonResult);
         }catch (JSONException e){
-            Log.e("Error 101",e.getMessage());
+            Log.e("Error 101: lista_pi",e.getMessage());
         }
         for(int i=0;i<jsonArray.length();i++){
             try{
@@ -113,36 +96,8 @@ public class Activity_Perfil extends AppCompatActivity {
                 adapter.add(id_post + ": " + titulo);
 
             }catch (JSONException e){
-                Log.e("Error 102",e.getMessage());
+                Log.e("Error 102: lista_pi",e.getMessage());
             }
         }
     }
-
-    private void parseInformationUsuario(String jsonResult){
-        JSONArray jsonArray = null;
-        String descripcion;
-        String nombre;
-        try{
-            jsonArray = new JSONArray(jsonResult);
-        }catch (JSONException e){
-            Log.e("Error 101",e.getMessage());
-        }
-        for(int i=0;i<jsonArray.length();i++){
-            try{
-                JSONObject jsonObject = jsonArray.getJSONObject(i);
-
-                nombre = jsonObject.getString("nombre");
-                descripcion = jsonObject.getString("descripcion");
-                //Se muestran los datos del cliente en su respectivo EditText
-                tv_nombre_usuario_p.setText(nombre);
-                et_descripcion_p.setText(descripcion);
-                Log.e("nombre",nombre);
-                Log.e("desc",descripcion);
-            }catch (JSONException e){
-                Log.e("Error 102",e.getMessage());
-            }
-        }
-    }
-
-
 }

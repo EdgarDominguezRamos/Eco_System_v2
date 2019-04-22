@@ -110,6 +110,15 @@
 
             </ScrollView>
 
+            <TextView
+                android:id="@+id/tv_link_sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                />
+
             <Button
                 android:id="@+id/btnn_guardar_sp"
                 android:layout_width="wrap_content"
@@ -119,6 +128,7 @@
                 android:fontFamily="@font/karla"
                 android:onClick="btn_insertOnClick"
                 android:text="Guardar post" />
+
         </LinearLayout>
     </ScrollView>
 </android.support.constraint.ConstraintLayout>

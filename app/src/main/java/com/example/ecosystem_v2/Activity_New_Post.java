@@ -21,7 +21,6 @@ public class Activity_New_Post extends AppCompatActivity {
 
     EditText et_titulo_np;
     EditText et_link_np;
-    EditText iv_foto_np;
     EditText et_procedimiento_np;
     EditText et_descripcion_np;
 
@@ -35,7 +34,6 @@ public class Activity_New_Post extends AppCompatActivity {
 
         et_titulo_np = findViewById(R.id.et_titulo_np);
         et_link_np = findViewById(R.id.et_link_np);
-        //iv_foto = findViewById(R.id.iv_foto);
         et_procedimiento_np = findViewById(R.id.et_procedimiento_np);
         et_descripcion_np = findViewById(R.id.et_descripcion_np);
     }
