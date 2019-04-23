@@ -10,8 +10,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/fondo4"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="40dp">
+        tools:layout_editor_absoluteX="44dp"
+        tools:layout_editor_absoluteY="0dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -116,8 +116,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                />
+                android:layout_marginEnd="8dp" />
 
             <Button
                 android:id="@+id/btnn_guardar_sp"
@@ -128,6 +127,16 @@
                 android:fontFamily="@font/karla"
                 android:onClick="btn_insertOnClick"
                 android:text="Guardar post" />
+
+            <Button
+                android:id="@+id/btnn_comentarios"
+                android:layout_width="wrap_content"
+                android:layout_height="27dp"
+                android:layout_marginStart="8dp"
+                android:background="@color/colorAccent"
+                android:fontFamily="@font/karla"
+                android:onClick="btn_insertOnClick"
+                android:text="Ver Comentarios" />
 
         </LinearLayout>
     </ScrollView>
