@@ -179,6 +179,9 @@ public class Activity_Show_Post extends AppCompatActivity implements View.OnClic
         Uri uri=Uri.parse(d);
         Intent intentNav= new Intent(Intent.ACTION_VIEW,uri);
         startActivity(intentNav);
-
+    }
+    public void comentarios(View view){
+        Intent intent = new Intent(getApplicationContext(), Activity_Comentarios.class);
+        startActivity(intent);
     }
 }
