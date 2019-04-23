@@ -3,8 +3,6 @@ package com.example.ecosystem_v2;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.StrictMode;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.view.MenuItemCompat;
 import android.util.Log;
 import android.view.View;
@@ -29,7 +27,6 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.StringTokenizer;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -188,15 +185,15 @@ public class MainActivity extends AppCompatActivity
 
     //categorias
     public void carton(View view){
-        Intent intent = new Intent(getApplicationContext(), Activity_carton.class);
+        Intent intent = new Intent(getApplicationContext(), Activity_Carton.class);
         startActivity(intent);
     }
     public void aluminio(View view) {
-        Intent intent = new Intent(getApplicationContext(), Activity_aluminio.class);
+        Intent intent = new Intent(getApplicationContext(), Activity_Aluminio.class);
         startActivity(intent);
     }
     public void pet(View view) {
-        Intent intent = new Intent(getApplicationContext(), Activity_pet.class);
+        Intent intent = new Intent(getApplicationContext(), Activity_Pet.class);
         startActivity(intent);
     }
 

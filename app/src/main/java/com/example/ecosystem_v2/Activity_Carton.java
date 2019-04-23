@@ -19,39 +19,38 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class Activity_aluminio extends AppCompatActivity {
+public class Activity_Carton extends AppCompatActivity {
 
-    private ListView lv_aluminio_list;
+    private ListView lv_carton_list;
     private ArrayAdapter adapter;
-    private String url = "https://webserviceedgar.herokuapp.com/api_aluminio_post?user_hash=12345&action=get";
+    private String url = "https://webserviceedgar.herokuapp.com/api_carton_post?user_hash=12345&action=get";
 
-    public static final String ID_POSTA = "1";
+    public static final String ID_POST = "1";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_aluminio);
+        setContentView(R.layout.activity_carton);
         StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().permitNetwork().build());
-
-        lv_aluminio_list = findViewById(R.id.lv_aluminio_list);
+        lv_carton_list = findViewById(R.id.lv_carton);
         adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1);
-        lv_aluminio_list.setAdapter(adapter);
+        lv_carton_list.setAdapter(adapter);
         webServiceRest(url);
 
-        lv_aluminio_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        lv_carton_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Log.e("ITEM", lv_aluminio_list.getItemAtPosition(position).toString());
+                Log.e("ITEM", lv_carton_list.getItemAtPosition(position).toString());
                 String datos_post[] =
-                        lv_aluminio_list.getItemAtPosition(position).toString().split(":");
+                        lv_carton_list.getItemAtPosition(position).toString().split(":");
                 String id_post = datos_post[0];
-                Log.e("ID_POSTA",id_post);
-                Intent i = new Intent(Activity_aluminio.this, Activity_Show_Post.class);
-                i.putExtra(ID_POSTA,id_post);
+                Log.e("ID_POST",id_post);
+                Intent i = new Intent(Activity_Carton.this, Activity_Show_Post.class);
+                i.putExtra(ID_POST,id_post);
                 startActivity(i);
             }
         });
     }
-
     private void webServiceRest(String requestURL){
         try{
             URL url = new URL(requestURL);
@@ -68,7 +67,6 @@ public class Activity_aluminio extends AppCompatActivity {
             Log.e("Error 100",e.getMessage());
         }
     }
-
     private void parseInformation(String jsonResult){
         JSONArray jsonArray = null;
         String id_post;
@@ -82,7 +80,7 @@ public class Activity_aluminio extends AppCompatActivity {
         for(int i=0;i<jsonArray.length();i++){
             try{
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
-                id_post = jsonObject.getString("id_aluminio_post");
+                id_post = jsonObject.getString("id_carton_post");
                 titulo = jsonObject.getString("titulo");
 
                 adapter.add(id_post +": " + titulo);
@@ -92,4 +90,3 @@ public class Activity_aluminio extends AppCompatActivity {
         }
     }
 }
-

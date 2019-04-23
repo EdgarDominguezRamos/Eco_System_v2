@@ -13,9 +13,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activity_carton"></activity>
-        <activity android:name=".Activity_aluminio" />
-        <activity android:name=".Activity_pet" />
+        <activity android:name=".Activity_Carton"></activity>
+        <activity android:name=".Activity_Aluminio" />
+        <activity android:name=".Activity_Pet" />
         <activity android:name=".Activity_Editar_Perfil" />
         <activity android:name=".Activity_Guardados" />
         <activity android:name=".Activity_Show_Post" />
