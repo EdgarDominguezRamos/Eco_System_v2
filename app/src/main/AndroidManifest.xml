@@ -15,13 +15,12 @@
         android:theme="@style/AppTheme">
         <activity android:name=".Activity_Carton"></activity>
         <activity android:name=".Activity_Aluminio" />
+        <activity android:name=".Activity_Comentarios" />
         <activity android:name=".Activity_Pet" />
-        <activity android:name=".Activity_Editar_Perfil" />
         <activity android:name=".Activity_Guardados" />
         <activity android:name=".Activity_Show_Post" />
         <activity android:name=".Activity_Resultados_Busqueda" />
         <activity android:name=".Activity_Perfil" />
-        <activity android:name=".Activity_New_Post" />
         <activity android:name=".Activity_Login" />
         <activity
             android:name=".MainActivity"

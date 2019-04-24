@@ -167,14 +167,8 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_perfil) {
             Intent intent = new Intent(getApplicationContext(), Activity_Perfil.class);
             startActivity(intent);
-        } else if (id == R.id.nav_nuevo_post) {
-            Intent intent = new Intent(getApplicationContext(), Activity_New_Post.class);
-            startActivity(intent);
         } else if (id == R.id.nav_Guardados) {
             Intent intent = new Intent(getApplicationContext(), Activity_Guardados.class);
-            startActivity(intent);
-        } else if (id == R.id.nav_editar_perfil) {
-            Intent intent = new Intent(getApplicationContext(), Activity_Editar_Perfil.class);
             startActivity(intent);
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
