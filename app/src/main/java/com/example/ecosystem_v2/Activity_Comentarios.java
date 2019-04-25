@@ -93,4 +93,8 @@ public class Activity_Comentarios extends AppCompatActivity {
             }
         }
     }
+    public void comentar(View view) {
+        Intent intent = new Intent(getApplicationContext(),Activity_Insert_Comentar.class);
+        startActivity(intent);
+    }
 }

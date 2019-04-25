@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/fondo4"
-        tools:layout_editor_absoluteX="44dp"
+        tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="0dp">
 
         <LinearLayout
@@ -120,8 +120,8 @@
 
             <Button
                 android:id="@+id/btnn_guardar_sp"
-                android:layout_width="wrap_content"
-                android:layout_height="27dp"
+                android:layout_width="393dp"
+                android:layout_height="36dp"
                 android:layout_marginStart="8dp"
                 android:background="@color/colorAccent"
                 android:fontFamily="@font/karla"
@@ -130,15 +130,16 @@
 
             <Button
                 android:id="@+id/btnn_comentarios"
-                android:layout_width="wrap_content"
-                android:layout_height="27dp"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="8dp"
                 android:background="@color/colorAccent"
                 android:fontFamily="@font/karla"
                 android:onClick="comentarios"
-                android:text="Ver Comentarios" />
+                android:text="Ver Comentarios"
+                android:textAlignment="center" />
 
         </LinearLayout>
     </ScrollView>

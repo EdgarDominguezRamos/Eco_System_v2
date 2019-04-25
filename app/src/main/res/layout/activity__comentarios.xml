@@ -50,26 +50,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 tools:layout_editor_absoluteX="59dp"
-                tools:layout_editor_absoluteY="0dp">
-
-                <EditText
-                    android:id="@+id/et_comentar_c"
-                    android:layout_width="293dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:ems="10"
-                    android:hint="Agrega un comentario ..."
-                    android:inputType="textPersonName"
-                    app:layout_constraintStart_toStartOf="parent" />
-            </ScrollView>
+                tools:layout_editor_absoluteY="0dp"/>
 
             <Button
                 android:id="@+id/bttn_comentar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="38dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
+                android:onClick="comentar"
                 android:text="Comentar"
+                android:textAlignment="center"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/et_comentar_c" />
         </LinearLayout>
