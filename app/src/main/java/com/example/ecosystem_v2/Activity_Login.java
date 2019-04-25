@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -23,13 +24,14 @@ import java.net.URL;
 
 import static com.example.ecosystem_v2.Activity_Perfil.ID_POST;
 
-public class Activity_Login extends AppCompatActivity {
+public class Activity_Login extends AppCompatActivity implements View.OnClickListener {
 
     EditText et_usuario_l;
     EditText et_password_l;
+    Button bttn_iniciar_l;
 
     private ArrayAdapter adapter;
-    private String url = "https://webserviceedgar.herokuapp.com/api_post?user_hash=12345&action=get";
+    private String url = "https://webserviceedgar.herokuapp.com/api_usuarios_eco?user_hash=12345&action=get";
     public static final String ID_USUARIOL ="1";
 
     @Override
@@ -45,18 +47,30 @@ public class Activity_Login extends AppCompatActivity {
         //Se almacena el id_cliente enviado
         String id_usuario = intent.getStringExtra(Activity_Login.ID_USUARIOL);
 
-        url+="1";
-        Log.e("url_usuario",url);
+        //url+="1";
+        //Log.e("url_usuario",url);
         webServiceRest(url);
 
-                //Log.e("ITEM", lv_post.getItemAtPosition(position).toString());
-                //String datos_post[] =
-                //        lv_post.getItemAtPosition(position).toString().split(":");
-                //String id_post = datos_post[0];
-                //Log.e("ID_POST",id_post);
-                //Intent i = new Intent(Activity_Perfil.this, Activity_Show_Post.class);
-                //i.putExtra(ID_POST,id_post);
-                //startActivity(i);
+        boton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String usuario = ((EditText)findViewById(R.id.et_usuario_l)).getText().toString();
+                String password = ((EditText)findViewById(R.id.et_password_l)).getText().toString();
+
+                if (usuario.equals(usuario)&& password.equals(password))
+                {
+                    Intent nuevoform = new Intent(Activity_Login.this, MainActivity
+                            .class);
+                    startActivity(nuevoform);
+                }
+                else
+                {
+                    Toast.makeText(getApplicationContext(),"Usuario Incorrecto/Contraseña Incorrecta",Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+        //bttn_iniciar_l=(Button) findViewById(R.id.bttn_iniciar_l);
+        //bttn_iniciar_l.setOnClickListener(this);
     }
     private void webServiceRest(String requestURL){
         try{
@@ -125,4 +139,8 @@ public class Activity_Login extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onClick(View v) {
+
+    }
 }
