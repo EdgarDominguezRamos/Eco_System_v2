@@ -23,6 +23,10 @@ public class Activity_Insert_Pet extends AppCompatActivity {
     EditText et_procedimiento_p;
     EditText et_link_p;
 
+    String titulo_p;
+    String descripcion_p;
+    String procedimiento_p;
+
     private String webservice_url = "https://webserviceedgar.herokuapp.com/api_pet_post?user_hash=12345&action=put&";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,11 +44,20 @@ public class Activity_Insert_Pet extends AppCompatActivity {
     public void btn_insertOnClick(View view){
         StringBuilder sb = new StringBuilder();
         sb.append(webservice_url);
-        sb.append("titulo="+et_titulo_p.getText());
+
+        titulo_p = (et_titulo_p.getText().toString());
+        descripcion_p = (et_descripcion_p.getText().toString());
+        procedimiento_p = (et_procedimiento_p.getText().toString());
+
+        String titulo= titulo_p.replace(" ","%20");
+        String descripcion= descripcion_p.replace(" ","%20");
+        String procedimiento= procedimiento_p.replace(" ","%20");
+
+        sb.append("titulo="+titulo);
         sb.append("&");
-        sb.append("descripcion="+et_descripcion_p.getText());
+        sb.append("descripcion="+descripcion);
         sb.append("&");
-        sb.append("procedimiento="+et_procedimiento_p.getText());
+        sb.append("procedimiento="+procedimiento);
         sb.append("&");
         sb.append("link_video="+et_link_p.getText());
         sb.append("&");

@@ -23,6 +23,10 @@ public class Activity_Insert_Carton extends AppCompatActivity {
     EditText et_procedimiento_c;
     EditText et_link_c;
 
+    String titulo_c;
+    String descripcion_c;
+    String procedimiento_c;
+
     private String webservice_url = "https://webserviceedgar.herokuapp.com/api_carton_post?user_hash=12345&action=put&";
 
     @Override
@@ -41,11 +45,20 @@ public class Activity_Insert_Carton extends AppCompatActivity {
     public void btn_insertOnClick(View view){
         StringBuilder sb = new StringBuilder();
         sb.append(webservice_url);
-        sb.append("titulo="+et_titulo_c.getText());
+
+        titulo_c = (et_titulo_c.getText().toString());
+        descripcion_c = (et_descripcion_c.getText().toString());
+        procedimiento_c = (et_procedimiento_c.getText().toString());
+
+        String titulo= titulo_c.replace(" ","%20");
+        String descripcion= descripcion_c.replace(" ","%20");
+        String procedimiento= procedimiento_c.replace(" ","%20");
+
+        sb.append("titulo="+titulo);
         sb.append("&");
-        sb.append("descripcion="+et_descripcion_c.getText());
+        sb.append("descripcion="+descripcion);
         sb.append("&");
-        sb.append("procedimiento="+et_procedimiento_c.getText());
+        sb.append("procedimiento="+procedimiento);
         sb.append("&");
         sb.append("link_video="+et_link_c.getText());
         sb.append("&");

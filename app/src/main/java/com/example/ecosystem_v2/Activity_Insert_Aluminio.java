@@ -23,6 +23,10 @@ public class Activity_Insert_Aluminio extends AppCompatActivity {
     EditText et_procedimiento_a;
     EditText et_link_a;
 
+    String titulo_a;
+    String descripcion_a;
+    String procedimiento_a;
+
     private String webservice_url = "https://webserviceedgar.herokuapp.com/api_aluminio_post?user_hash=12345&action=put&";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,14 +41,25 @@ public class Activity_Insert_Aluminio extends AppCompatActivity {
 
     }
 
+    //%20 es igual a espacio
     public void btn_insertOnClick(View view){
         StringBuilder sb = new StringBuilder();
         sb.append(webservice_url);
-        sb.append("titulo="+et_titulo_a.getText());
+
+        titulo_a = (et_titulo_a.getText().toString());
+        descripcion_a = (et_descripcion_a.getText().toString());
+        procedimiento_a = (et_procedimiento_a.getText().toString());
+
+        String titulo= titulo_a.replace(" ","%20");
+        String descripcion= descripcion_a.replace(" ","%20");
+        String procedimiento= procedimiento_a.replace(" ","%20");
+        Log.e("titulo",titulo);
+
+        sb.append("titulo="+titulo);
         sb.append("&");
-        sb.append("descripcion="+et_descripcion_a.getText());
+        sb.append("descripcion="+descripcion);
         sb.append("&");
-        sb.append("procedimiento="+et_procedimiento_a.getText());
+        sb.append("procedimiento="+procedimiento);
         sb.append("&");
         sb.append("link_video="+et_link_a.getText());
         sb.append("&");

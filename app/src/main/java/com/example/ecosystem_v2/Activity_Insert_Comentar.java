@@ -21,6 +21,8 @@ public class Activity_Insert_Comentar extends AppCompatActivity {
 
     EditText et_comantar_c3;
 
+    String comentario_c3;
+
     private String webservice_url = "https://webserviceedgar.herokuapp.com/api_comentarios?user_hash=12345&action=put&";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +37,10 @@ public class Activity_Insert_Comentar extends AppCompatActivity {
         StringBuilder sb = new StringBuilder();
         //webServicePut(webservice_url);
 
+        comentario_c3 = (et_comantar_c3.getText().toString());
+
+        String comentario= comentario_c3.replace(" ","%20");
+
         sb.append(webservice_url);
         sb.append("id_post="+"1");
         sb.append("&");
@@ -44,11 +50,11 @@ public class Activity_Insert_Comentar extends AppCompatActivity {
         sb.append("&");
         sb.append("id_carton_post="+"1");
         sb.append("&");
-        sb.append("comentario="+et_comantar_c3.getText());
+        sb.append("comentario="+comentario);
         sb.append("&");
         sb.append("categoria="+"Pet");
         sb.append("&");
-        sb.append("id_usuario_eco="+"Alejandro");
+        sb.append("id_usuario_eco="+"Alejandro%20Lora");
         webServicePut(sb.toString());
         Log.e("URL",sb.toString());
 

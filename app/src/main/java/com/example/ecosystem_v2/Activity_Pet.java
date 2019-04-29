@@ -42,7 +42,7 @@ public class Activity_Pet extends AppCompatActivity {
                         lv_pet_list.getItemAtPosition(position).toString().split(":");
                 String id_post = datos_post[0];
                 Log.e("ID_POST",id_post);
-                Intent i = new Intent(Activity_Pet.this, Activity_Show_Post.class);
+                Intent i = new Intent(Activity_Pet.this, Activity_Show_Post_Pet.class);
                 i.putExtra(ID_POST_P,id_post);
                 startActivity(i);
             }
