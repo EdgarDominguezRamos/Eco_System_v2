@@ -37,6 +37,7 @@ public class Activity_Aluminio extends AppCompatActivity {
         lv_aluminio_list.setAdapter(adapter);
         webServiceRest(url);
 
+
         lv_aluminio_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -45,7 +46,7 @@ public class Activity_Aluminio extends AppCompatActivity {
                         lv_aluminio_list.getItemAtPosition(position).toString().split(":");
                 String id_post = datos_post[0];
                 Log.e("ID_POSTA",id_post);
-                Intent i = new Intent(Activity_Aluminio.this, Activity_Show_Post.class);
+                Intent i = new Intent(Activity_Aluminio.this, Activity_Show_Post_Aluminio.class);
                 i.putExtra(ID_POSTA,id_post);
                 startActivity(i);
             }

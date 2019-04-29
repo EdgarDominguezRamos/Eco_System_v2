@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/fondo99"
-    tools:context=".Activity_Show_Post">
+    tools:context=".Activity_Show_Post_Aluminio">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -30,7 +30,7 @@
                 tools:layout_editor_absoluteY="0dp">
 
                 <TextView
-                    android:id="@+id/tv_titulo_sp"
+                    android:id="@+id/tv_titulo_sp_a"
                     android:layout_width="match_parent"
                     android:layout_height="32dp"
                     android:layout_marginStart="8dp"
@@ -91,7 +91,7 @@
                 tools:layout_editor_absoluteY="0dp">
 
                 <EditText
-                    android:id="@+id/et_procedimiento_sp"
+                    android:id="@+id/et_procedimiento_sp_a"
                     android:layout_width="match_parent"
                     android:layout_height="112dp"
                     android:layout_marginStart="8dp"
@@ -111,7 +111,7 @@
             </ScrollView>
 
             <TextView
-                android:id="@+id/tv_link_sp"
+                android:id="@+id/tv_link_sp_a"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"

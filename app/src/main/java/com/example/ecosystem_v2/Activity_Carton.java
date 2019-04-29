@@ -45,7 +45,7 @@ public class Activity_Carton extends AppCompatActivity {
                         lv_carton_list.getItemAtPosition(position).toString().split(":");
                 String id_post = datos_post[0];
                 Log.e("ID_POST",id_post);
-                Intent i = new Intent(Activity_Carton.this, Activity_Show_Post.class);
+                Intent i = new Intent(Activity_Carton.this, Activity_Show_Post_Carton.class);
                 i.putExtra(ID_POST,id_post);
                 startActivity(i);
             }

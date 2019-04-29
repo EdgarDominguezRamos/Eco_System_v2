@@ -170,6 +170,9 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_Guardados) {
             Intent intent = new Intent(getApplicationContext(), Activity_Guardados.class);
             startActivity(intent);
+        } else if (id == R.id.nav_Nuevo) {
+            Intent intent = new Intent(getApplicationContext(), Activity_Menu_Insertar.class);
+            startActivity(intent);
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

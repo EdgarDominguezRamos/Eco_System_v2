@@ -73,6 +73,7 @@ public class Activity_Comentarios extends AppCompatActivity {
         String id_post;
         String fecha_comentario;
         String comentario;
+        String id_usuario_eco;
 
         try{
             jsonArray = new JSONArray(jsonResult);
@@ -86,8 +87,10 @@ public class Activity_Comentarios extends AppCompatActivity {
                 id_post = jsonObject.getString("id_post");
                 //fecha_comentario = jsonObject.getString("fecha_comentario");
                 comentario = jsonObject.getString("comentario");
+                id_usuario_eco = jsonObject.getString("id_usuario_eco");
 
-                adapter.add(comentario);
+
+                adapter.add(comentario + " "+ "-"+id_usuario_eco);
             }catch (JSONException e){
                 Log.e("Error 102",e.getMessage());
             }

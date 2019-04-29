@@ -9,4 +9,5 @@
     <string name="toast_mesage">Nuevo post publicado!!</string>
     <string name="toast_guardar">Post Guardado</string>
     <string name="toast_comentar">Comentado!!</string>
+    <string name="toast_pubicar">Publicado!!!</string>
 </resources>

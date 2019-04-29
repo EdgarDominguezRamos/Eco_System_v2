@@ -12,6 +12,10 @@
             android:id="@+id/nav_Guardados"
             android:icon="@drawable/guardado"
             android:title="Guardados" />
+        <item
+            android:id="@+id/nav_Nuevo"
+            android:icon="@drawable/nuevo"
+            android:title="Nuevo Post" />
     </group>
 
     <item android:title="más">

@@ -1,6 +1,5 @@
 package com.example.ecosystem_v2;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,42 +16,44 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class Activity_Insert_Comentar extends AppCompatActivity {
+public class Activity_Insert_Carton extends AppCompatActivity {
 
-    EditText et_comantar_c3;
+    EditText et_titulo_c;
+    EditText et_descripcion_c;
+    EditText et_procedimiento_c;
+    EditText et_link_c;
 
-    private String webservice_url = "https://webserviceedgar.herokuapp.com/api_comentarios?user_hash=12345&action=put&";
+    private String webservice_url = "https://webserviceedgar.herokuapp.com/api_carton_post?user_hash=12345&action=put&";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity__insert__comentar);
+        setContentView(R.layout.activity__insert__carton);
 
         //inicialización de EditText de la vista
-        et_comantar_c3 = findViewById(R.id.et_comentar_c3);
+        et_titulo_c = findViewById(R.id.et_titulo_c);
+        et_descripcion_c = findViewById(R.id.et_descripcion_c);
+        et_procedimiento_c = findViewById(R.id.et_procedimiento_c);
+        et_link_c = findViewById(R.id.et_link_c);
+
     }
 
     public void btn_insertOnClick(View view){
         StringBuilder sb = new StringBuilder();
-        //webServicePut(webservice_url);
-
         sb.append(webservice_url);
-        sb.append("id_post="+"1");
+        sb.append("titulo="+et_titulo_c.getText());
         sb.append("&");
-        sb.append("id_aluminio_post="+"1");
+        sb.append("descripcion="+et_descripcion_c.getText());
         sb.append("&");
-        sb.append("id_pet_post="+"1");
+        sb.append("procedimiento="+et_procedimiento_c.getText());
         sb.append("&");
-        sb.append("id_carton_post="+"1");
+        sb.append("link_video="+et_link_c.getText());
         sb.append("&");
-        sb.append("comentario="+et_comantar_c3.getText());
-        sb.append("&");
-        sb.append("categoria="+"Pet");
-        sb.append("&");
-        sb.append("id_usuario_eco="+"Alejandro");
+        sb.append("id_usuario_eco="+"1");
         webServicePut(sb.toString());
         Log.e("URL",sb.toString());
 
-        Toast toast = Toast.makeText(this, R.string.toast_comentar,
+        Toast toast = Toast.makeText(this, R.string.toast_pubicar,
                 Toast.LENGTH_SHORT);
         toast.show();
     }
@@ -72,6 +73,7 @@ public class Activity_Insert_Comentar extends AppCompatActivity {
             Log.e("Error 100",e.getMessage());
         }
     }
+
     private void parseInformation(String jsonResult){
         JSONArray jsonArray = null;
         String status;

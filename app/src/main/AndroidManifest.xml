@@ -13,7 +13,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activity_Registro"></activity>
+        <activity android:name=".Activity_Show_Post_Pet"></activity>
+        <activity android:name=".Activity_Show_Post_Carton" />
+        <activity android:name=".Activity_Show_Post_Aluminio" />
+        <activity android:name=".Activity_Menu_Insertar" />
+        <activity android:name=".Activity_Insert_Pet" />
+        <activity android:name=".Activity_Insert_Carton" />
+        <activity android:name=".Activity_Insert_Aluminio" />
+        <activity android:name=".Activity_Registro" />
         <activity android:name=".Activity_Insert_Comentar" />
         <activity android:name=".Activity_Carton" />
         <activity android:name=".Activity_Aluminio" />

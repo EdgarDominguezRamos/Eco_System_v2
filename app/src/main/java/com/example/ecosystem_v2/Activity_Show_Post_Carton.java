@@ -2,7 +2,6 @@ package com.example.ecosystem_v2;
 
 import android.content.Intent;
 import android.net.Uri;
-import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -19,28 +18,26 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class Activity_Show_Post extends AppCompatActivity implements View.OnClickListener {
+public class Activity_Show_Post_Carton extends AppCompatActivity implements View.OnClickListener {
 
-    TextView tv_titulo_sp;
-    TextView tv_link_sp;
-    EditText et_descripcion_sp;
-    EditText et_procedimiento_sp;
+    TextView tv_titulo_sp_c;
+    TextView tv_link_sp_c;
+    EditText et_descripcion_sp_c;
+    EditText et_procedimiento_sp_c;
     String direccion;
 
-    private String url = "https://webserviceedgar.herokuapp.com/api_post?user_hash=12345&action=get&id_post=";
+    private String url = "https://webserviceedgar.herokuapp.com/api_carton_post?user_hash=12345&action=get&id_carton_post=";
     private String url_put = "https://webserviceedgar.herokuapp.com/api_guardado?user_hash=12345&action=put&";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().permitNetwork().build());
-        setContentView(R.layout.activity__show__post);
+        setContentView(R.layout.activity__show__post__carton);
 
         //inicialización de EditText de la vista
-        tv_titulo_sp = findViewById(R.id.tv_titulo_sp);
-        et_descripcion_sp = findViewById(R.id.et_descripcion_sp_c);
-        et_procedimiento_sp = findViewById(R.id.et_procedimiento_sp);
-        tv_link_sp = findViewById(R.id.tv_link_sp);
+        tv_titulo_sp_c = findViewById(R.id.tv_titulo_sp_c);
+        et_descripcion_sp_c = findViewById(R.id.et_descripcion_sp_c);
+        et_procedimiento_sp_c = findViewById(R.id.et_procedimiento_sp_c);
+        tv_link_sp_c = findViewById(R.id.tv_link_sp_c);
 
         //Objeto tipo Intent para recuperar el parametro enviado
         Intent intent = getIntent();
@@ -52,10 +49,8 @@ public class Activity_Show_Post extends AppCompatActivity implements View.OnClic
         Log.e("url",url);
 
         direccion="";
-        tv_link_sp.setOnClickListener(this);
+        tv_link_sp_c.setOnClickListener(this);
     }
-
-
     public void btn_insertOnClick(View view){
         StringBuilder sb = new StringBuilder();
         //Objeto tipo Intent para recuperar el parametro enviado
@@ -69,10 +64,9 @@ public class Activity_Show_Post extends AppCompatActivity implements View.OnClic
         sb.append(url_put);
         sb.append("id_usuario_eco="+"1");
         sb.append("&");
-        sb.append("id_post="+id_post);
+        sb.append("id_carton_post="+id_post);
         webServicePut(sb.toString());
         Log.e("URL",sb.toString());
-
 
     }
     private void webServicePut(String requestURL){
@@ -148,18 +142,18 @@ public class Activity_Show_Post extends AppCompatActivity implements View.OnClic
             try{
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                 //Se obtiene cada uno de los datos post del webservice
-                id_post = jsonObject.getString("id_post");
-                titulo = jsonObject.getString("Titulo");
+                id_post = jsonObject.getString("id_carton_post");
+                titulo = jsonObject.getString("titulo");
                 descripcion = jsonObject.getString("descripcion");
                 procedimiento = jsonObject.getString("procedimiento");
                 link_video = jsonObject.getString("link_video");
                 id_usuario_eco = jsonObject.getString("id_usuario_eco");
 
                 //Se muestran los datos del post en su respectivo EditText
-                tv_titulo_sp.setText(titulo);
-                et_descripcion_sp.setText(descripcion);
-                et_procedimiento_sp.setText(procedimiento);
-                tv_link_sp.setText(link_video);
+                tv_titulo_sp_c.setText(titulo);
+                et_descripcion_sp_c.setText(descripcion);
+                et_procedimiento_sp_c.setText(procedimiento);
+                tv_link_sp_c.setText(link_video);
                 direccion=link_video;
             }catch (JSONException e){
                 e.printStackTrace();
