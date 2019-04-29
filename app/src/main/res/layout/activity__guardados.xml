@@ -5,27 +5,48 @@
     android:id="@+id/lv_guardado"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/fondo4"
+    android:background="@drawable/fondo99"
     tools:context=".Activity_Guardados">
 
-    <TextView
-        android:id="@+id/tv_guardado"
-        android:layout_width="wrap_content"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/fondo99"
+        tools:layout_editor_absoluteX="59dp"
+        tools:layout_editor_absoluteY="0dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:fontFamily="@font/aclonica"
-        android:text="Post Guardados"
-        android:textColor="@color/colorAccent"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/tv_guardado"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/aclonica"
+            android:text="Post Guardados"
+            android:textAlignment="center"
+            android:textColor="@color/colorAccent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     <ListView
         android:id="@+id/lv_guardado_g"
-        android:layout_width="395dp"
+        android:layout_width="match_parent"
         android:layout_height="688dp"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="35dp" />
+        android:layout_marginTop="8dp"
+        android:background="@drawable/fondo4"
+        app:layout_constraintTop_toBottomOf="@+id/tv_guardado"
+        tools:layout_editor_absoluteX="8dp" />
+    </LinearLayout>
+    </ScrollView>
 </android.support.constraint.ConstraintLayout>

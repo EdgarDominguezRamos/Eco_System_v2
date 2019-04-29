@@ -23,7 +23,7 @@ public class Activity_Comentarios extends AppCompatActivity {
 
     private ListView lv_comentarios_list;
     private ArrayAdapter adapter;
-    private String url = "https://webserviceedgar.herokuapp.com/api_comentarios?user_hash=12345&action=get";
+    private String url = "http://webserviceedgar.herokuapp.com/api_comentarios?user_hash=12345&action=get";
     public static final String ID_COMENTARIO = "1";
 
     @Override
@@ -84,10 +84,10 @@ public class Activity_Comentarios extends AppCompatActivity {
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                 id_comentario = jsonObject.getString("id_comentario");
                 id_post = jsonObject.getString("id_post");
-                fecha_comentario = jsonObject.getString("fecha_comentario");
+                //fecha_comentario = jsonObject.getString("fecha_comentario");
                 comentario = jsonObject.getString("comentario");
 
-                adapter.add(comentario + " - " + fecha_comentario);
+                adapter.add(comentario);
             }catch (JSONException e){
                 Log.e("Error 102",e.getMessage());
             }
